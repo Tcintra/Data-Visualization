@@ -30,12 +30,16 @@ import re
 ### ========== TODO : Question 1 ========== ###
 
 # Part a: Read the .csv file
-df = None
+df = pd.read_csv('../Data/test.csv')
+print('Question 1')
+print(df.describe())
 
 ### ========== TODO : END ========== ###
 
 
 ### ========== TODO : Question 2 ========== ###
+print('Question 2')
+print( df.isnull().sum() )
 # Part b: Drop columns with too many missing entries
 
 def drop(column):
@@ -44,7 +48,8 @@ def drop(column):
 
     Output:
     """
-    
+
+# drop, fill  
 
 ### ========== TODO : END ========== ###
 
