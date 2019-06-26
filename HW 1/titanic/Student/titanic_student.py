@@ -79,21 +79,27 @@ def missing_columns(df):
 
 
 def survived(df):
+    """
+    input: a pandas data frame of titanic data
+    output: a Pandas data frame of survived passengers data
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part a
-
-    survived_df = df.loc[df['Survived'] == 1]
+    survived_df = 
     return survived_df
 
     ## ========== TODO : END ========== ###
 
 def survival_rates(df, feature):
+    """
+    input: a pandas data frame of titanic data df
+            a feature string same as one of the column names
+    output: a Pandas data frame of survived passengers data
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part c
 
-    count = survived(df)[feature].value_counts()
-    total = df[feature].value_counts()
-    return (count/total)
+    return 
 
     ## ========== TODO : END ========== ###
 
