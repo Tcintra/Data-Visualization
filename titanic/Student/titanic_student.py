@@ -207,11 +207,11 @@ def barplot(df, column, hue = None):
     ### ========== TODO : END ========== ###
 
 def histogram(df, column):
-    g1 = None
-    g2 = None
+    g1 = sns.distplot(survived(df, 1)['Age'], color = 'Green')
+    g2 = sns.distplot(survived(df, 0)['Age'], color = 'Red')
 
 def pointplot(df, column):
-    g1 = None
+    sns.pointplot(x= df[column], y= df['Survived'])
 
 def family_size(df):
     ### ========== TODO : Question 6 ========== ###
