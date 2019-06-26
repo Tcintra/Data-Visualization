@@ -27,81 +27,135 @@ import re
 
 # --------------------------------- START --------------------------------- #
 
+path = os.path.join("..", "Data")
+
 def main():
 
+    print()
+
+    ### ========== TODO : Question 1 ========== ###
+
     # read the dataframe
-    df = read('titanic.csv')
+    df = None
+
+    ### ========== TODO : END ========== ###
+    
+    ### ========== TODO : Question 2 ========== ###
+
+    # print missing values series
+
+    # drop column
+    
+
+    ### ========== TODO : END ========== ###
+
+
+    ### ========== TODO : Question 4 ========== ###
+
+    # call age_categories(df)
+    
+
+    # call fare_categories(df)
+
+
+    ### ========== TODO : END ========== ###
+
+    ### ========== TODO ========== ##
+
+    # call fill_age(df)
+
+
+    ### ========== TODO : END ========== ###
+
+    ### ========== TODO : Question 6 ========== ###
+
+    # call family_size(df)
+
+
+    ### ========== TODO : END ========== ###
+
+    ### ========== TODO : Question 3 ========== ###
 
     # print survival_rates
-    print(survival_rates(df, 'Sex'))
 
     # print median
-    print(median(df, 'Age'))
 
     # print mean
-    print(mean(df, 'Age'))
 
-    # barplot
-    barplot(df, 'Pclass', 'Sex')
-    plt.show()
+    ### ========== TODO : END ========== ###
 
-    # how to autograde the questions where they produce new csv columns, do we just grade those by asking questions on those columns that we can have return statements for? If they create a column and then we ask them to find medians and stuff on that column then should that be something that happens in main()?
 
-    # Call all the functions in main that generate a new column
+    ### ========== TODO : Question 5 ========== ###
+
+    # plot barplot
+
+
+    # plot histogram
+
+
+    # plot pair pointplot
+
+    ### ========== TODO : END ========== ###
 
 def read(file):
     ### ========== TODO : Question 1 ========== ###
     # Part a: Read the .csv file and assign it to df
 
-    path = "../Data/"
-    df = pd.read_csv(path + 'titanic.csv')
+    df = None
 
     ### ========== TODO : END ========== ###
+
     return df
 
+def missing_values(df):
+    ### ========== TODO : Question 2 ========== ###
+    # Part a: Return all the missing values in df
 
-def survived(df):
+    missing = None
+    return missing
+
+    ### ========== TODO : END ========== ###
+
+def survived(df, b):
     ### ========== TODO : Question 3 ========== ###
-    # Part a
+    # Part a: Return a Pandas DataFrame with all the passengers that survived
 
-    survived_df = df.loc[df['Survived'] == 1]
-    return survived_df
+    survived_df = None
 
     ## ========== TODO : END ========== ###
+
+    return survived_df
 
 def survival_rates(df, feature):
     ### ========== TODO : Question 3 ========== ###
-    # Part c
+    # Part c: Return a Pandas series for the proportion of passengers that survived grouped by a given feature
 
-    count = survived(df)[feature].value_counts()
-    total = df[feature].value_counts()
-    return (count/total)
+    return
 
     ## ========== TODO : END ========== ###
-
 
 def median(df, feature):
     ### ========== TODO : Question 3 ========== ###
-    # Part d
+    # Part d: Return the median value for feature for surviving passengers
 
-    median_df = df[[feature, 'Survived']]
-    median = median_df.groupby(['Survived']).median()
-    return median
+    median = None
 
     ## ========== TODO : END ========== ###
+
+    return median
 
 def mean(df, feature):
     ### ========== TODO : Question 3 ========== ###
-    # Part d
+    # Part d: Return the mean value for feature for surviving passengers
 
-    mean_df = df[[feature, 'Survived']]
-    mean = mean_df.groupby(['Survived']).mean()
-    return mean
+    mean = None
 
     ## ========== TODO : END ========== ###
 
+    return mean
+
 # Run this function to fill in missing entries in age
-def missing_entries(df):
+def fill_age(df):
     def get_title(name):
         title = re.findall("\w+[.]", name)[0]
         return title
@@ -110,35 +164,32 @@ def missing_entries(df):
     df['Title'] = df['Title'].replace(title_dictionary)
     df['MedianAge'] = df.groupby('Title')['Age'].transform("median")
     df['Age'] = df['Age'].fillna(df['MedianAge'])
-    df.drop('MedianAge')
+    df.drop(['MedianAge', 'Title'], axis = 1, inplace = True)
     df.dropna(inplace = True)
-    path = "../Data/"
-    df.to_csv(path + 'titanic.csv')
 
 def age_categories(df):
     ### ========== TODO : Question 4 ========== ###
-    # part a
+    # part a: Create a new column in df labelled 'Age Categories'
 
-    df["Age Categories"] = pd.cut(df["Age"], 8, labels = [0,1,2,3,4,5,6,7])
-    df.to_csv('titanic.csv')
+    df["Age Categories"] = None
 
     ## ========== TODO : END ========== ###
 
 def fare_categories(df):
     ### ========== TODO : Question 4 ========== ###
-    # part b
+    # part b: Create a new column in df labelle 'Fare Categories'
 
     def helper(row):
-        if row['Fare'] <= 30:
-            val = '30 or Less'
-        elif row['Fare'] > 30 and row['Fare'] <= 100:
-            val = 'Between 30 and 100'
+        if row['Fare'] <= None:
+            val = ''
+        elif row['Fare'] <= None:
+            val = ''
         else: 
-            val = 'More than 100'
+            val = ''
         return val
-    df['Fare Categories'] = df.apply(helper, axis = 1)
-    path = "../Data/"
-    df.to_csv(path + 'titanic.csv')
+        
+    df['Fare Categories'] = None
+    
 
     ## ========== TODO : END ========== ###
 
@@ -146,22 +197,27 @@ def barplot(df, column, hue = None):
     ### ========== TODO : Question 5 ========== ###
     # part a
     if column == 'Age Categories':
-        sns.barplot(x = column, y = 'Survived', data = df, hue = hue, order = [0,1,2,3,4,5,6,7])
+        g1 = None
     elif column == 'Fare Categories':
-        sns.barplot(x = column, y = 'Survived', data = df, hue = hue, order = ['30 or Less', 'Between 30 and 100', 'More than 100'])
+        g1 = None
     else:
-        sns.barplot(x = column, y = 'Survived', data = df, hue = hue)
+        g1 = None
     plt.show()
 
     ### ========== TODO : END ========== ###
+
+def histogram(df, column):
+    g1 = None
+    g2 = None
+
+def pointplot(df, column):
+    g1 = None
 
 def family_size(df):
     ### ========== TODO : Question 6 ========== ###
     # part a
 
-    df['Family Size'] = df['SibSp'] + df['Parch'] + 1
-    path = "../Data/"
-    df.to_csv(path + 'titanic.csv')
+    df['Family Size'] = None
 
     ### ========== TODO : END ========== ###
 

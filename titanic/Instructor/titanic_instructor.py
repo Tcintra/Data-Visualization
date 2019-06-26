@@ -27,52 +27,85 @@ import re
 
 # --------------------------------- START --------------------------------- #
 
+path = os.path.join("..", "Data")
+
 def main():
+
+    print()
 
     # read the dataframe
     df = read('titanic.csv')
-    
-    # print missing entries
-    print(missing_values(df))
 
-    # Call age_categories(df)
+    # print missing entries
+    print('Missing Values:')
+    print()
+    print(missing_values(df))
+    print()
+
+    df.drop('Cabin', axis = 1, inplace = True)
+
+    # call age_categories(df)
     age_categories(df)
 
-    # Call fare_categories(df)
+    # call fare_categories(df)
     fare_categories(df)
 
+    # call fill_age(df)
+    fill_age(df)
+
+    # call family_size(df)
+    family_size(df)
+
     # print survival_rates
+    print('Survival rates:')
+    print()
     print(survival_rates(df, 'Sex'))
+    print()
 
     # print median
+    print('Medians:')
+    print()
     print(median(df, 'Age'))
+    print()
 
     # print mean
+    print('Means:')
+    print()
     print(mean(df, 'Age'))
+    print()
 
     # plot barplot
     barplot(df, 'Pclass', 'Sex')
     plt.show()
 
+    # plot histogram
+    histogram(df, 'Age')
+    plt.show()
+
+    # plot pair pointplot
+    pointplot(df, 'Sex')
+    plt.show()
+
+
 def read(file):
     ### ========== TODO : Question 1 ========== ###
     # Part a: Read the .csv file and assign it to df
 
-    path = "../Data/"
-    df = pd.read_csv(path + file)
+    df = pd.read_csv(os.path.join(path, file))
 
     ### ========== TODO : END ========== ###
+
     return df
 
 def missing_values(df):
     missing = df.isnull().sum()
     return missing
 
-def survived(df):
+def survived(df, b):
     ### ========== TODO : Question 3 ========== ###
     # Part a
 
-    survived_df = df.loc[df['Survived'] == 1]
+    survived_df = df.loc[df['Survived'] == b]
     return survived_df
 
     ## ========== TODO : END ========== ###
@@ -81,7 +114,7 @@ def survival_rates(df, feature):
     ### ========== TODO : Question 3 ========== ###
     # Part c
 
-    count = survived(df)[feature].value_counts()
+    count = survived(df, 1)[feature].value_counts()
     total = df[feature].value_counts()
     return (count/total)
 
@@ -109,7 +142,7 @@ def mean(df, feature):
     ## ========== TODO : END ========== ###
 
 # Run this function to fill in missing entries in age
-def missing_entries(df):
+def fill_age(df):
     def get_title(name):
         title = re.findall("\w+[.]", name)[0]
         return title
@@ -118,10 +151,8 @@ def missing_entries(df):
     df['Title'] = df['Title'].replace(title_dictionary)
     df['MedianAge'] = df.groupby('Title')['Age'].transform("median")
     df['Age'] = df['Age'].fillna(df['MedianAge'])
-    df.drop('MedianAge')
+    df.drop(['MedianAge', 'Title'], axis = 1, inplace = True)
     df.dropna(inplace = True)
-    path = "../Data/"
-    df.to_csv(path + 'titanic.csv')
 
 def age_categories(df):
     ### ========== TODO : Question 4 ========== ###
@@ -160,13 +191,18 @@ def barplot(df, column, hue = None):
 
     ### ========== TODO : END ========== ###
 
+def histogram(df, column):
+    g1 = sns.distplot(survived(df, 1)['Age'], color = 'Green')
+    g2 = sns.distplot(survived(df, 0)['Age'], color = 'Red')
+
+def pointplot(df, column):
+    sns.pointplot(x= df[column], y= df['Survived'])
+
 def family_size(df):
     ### ========== TODO : Question 6 ========== ###
     # part a
 
     df['Family Size'] = df['SibSp'] + df['Parch'] + 1
-    path = "../Data/"
-    df.to_csv(path + 'titanic.csv')
 
     ### ========== TODO : END ========== ###
 
