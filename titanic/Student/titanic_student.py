@@ -60,10 +60,9 @@ def main():
 
     ### ========== TODO : END ========== ###
 
-    ### ========== TODO ========== ##
+    ### ========== TODO : INTERMEDIARY ========== ##
 
     # call fill_age(df)
-
 
     ### ========== TODO : END ========== ###
 
@@ -71,10 +70,11 @@ def main():
 
     # call family_size(df)
 
-
     ### ========== TODO : END ========== ###
 
     ### ========== TODO : Question 3 ========== ###
+
+    # print overall survival rate
 
     # print survival_rates
 
