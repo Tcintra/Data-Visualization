@@ -31,7 +31,11 @@ path = os.path.join("..", "Data")
 def main():
 
     # read the dataframe
-    df = read('titanic.csv')
+    ### ========== TODO : Question 1 ========== ###
+    # Part a: Use your read(file) function to assign titanic.csv to df
+    df = None
+    ### ========== TODO : END ========== ###
+ 
 
     # print survival_rates
     print(survival_rates(df, 'Sex'))
@@ -61,6 +65,17 @@ def read(file):
 
     ### ========== TODO : END ========== ###
     return df
+
+def missing_columns(df):
+    """
+    input: a pandas data frame
+    output: a Pandas series of each column's missing value count
+    """
+    ### ========== TODO : Question 2 ========== ###
+    # Part b: Implement missing_columns(df)
+    return 
+
+    ### ========== TODO : END ========== ###
 
 
 def survived(df):
