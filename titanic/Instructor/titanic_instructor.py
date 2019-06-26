@@ -56,6 +56,10 @@ def main():
     # call family_size(df)
     family_size(df)
 
+    # print overall survival rate
+    print('Overall Survival Rate:', overall_survival(df))
+    print()
+
     # print survival_rates
     print('Survival rates:')
     print()
@@ -109,6 +113,9 @@ def survived(df, b):
     return survived_df
 
     ## ========== TODO : END ========== ###
+
+def overall_survival(df):
+    return len(survived(df, 1))/len(df)
 
 def survival_rates(df, feature):
     ### ========== TODO : Question 3 ========== ###
