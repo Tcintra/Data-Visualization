@@ -160,7 +160,11 @@ def fill_age(df):
         title = re.findall("\w+[.]", name)[0]
         return title
     df['Title'] = df['Name'].map(get_title)
-    title_dictionary = {'Ms.': 'Miss.', 'Mlle.': 'Miss.', 'Dr.': 'Rare', 'Mme.': 'Mr.', 'Major.': 'Rare', 'Lady.': 'Rare', 'Sir.': 'Rare', 'Col.': 'Rare', 'Capt.': 'Rare', 'Countess.': 'Rare', 'Jonkheer.': 'Rare', 'Dona.': 'Rare', 'Don.': 'Rare', 'Rev.': 'Rare'}
+    title_dictionary = {'Ms.': 'Miss.', 'Mlle.': 'Miss.', 
+        'Dr.': 'Rare', 'Mme.': 'Mr.', 'Major.': 'Rare', 
+        'Lady.': 'Rare', 'Sir.': 'Rare', 'Col.': 'Rare', 
+        'Capt.': 'Rare', 'Countess.': 'Rare', 'Jonkheer.': 
+        'Rare', 'Dona.': 'Rare', 'Don.': 'Rare', 'Rev.': 'Rare'}
     df['Title'] = df['Title'].replace(title_dictionary)
     df['MedianAge'] = df.groupby('Title')['Age'].transform("median")
     df['Age'] = df['Age'].fillna(df['MedianAge'])

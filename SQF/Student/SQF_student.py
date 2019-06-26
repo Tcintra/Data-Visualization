@@ -24,27 +24,78 @@ from matplotlib import colors as mcolors
 
 # --------------------------------- START --------------------------------- #
 
-# TODO Read the DataFrame onto your python script
-path = "../Data/"
-df = None
+path = os.path.join("..", "Data")
 
-### ========== TODO : Question 2 ========== ###
+def main():
 
-def binary(columns):
-    # TODO Implement binary(columns)
+    print()
+
+    # read csv file onto df
+    df = pd.read_csv(os.path.join(path, 'march_2010.csv'))
+
+    # call pie_chart(df, column)
+    
+
+    # list of columns to revert to binary
+    cols_to_change = ["offunif", "frisked", "ac_rept", "ac_inves", "ac_proxm" , 
+        "cs_objcs", "cs_descr", "cs_casng", "cs_lkout", "cs_cloth", "cs_drgtr", 
+        "ac_evasv", "ac_assoc", "cs_furtv", "ac_cgdir", "cs_vcrim", "cs_bulge", 
+        "cs_other", "ac_incid", "ac_time", "ac_stsnd", "ac_other", "sex", "inout"]
+
+    # call binary(columns)
+    
+
+    # print find_proportions(...)
+    
+
+    # print find_mean(...)
+    
+
+    # lists for plotting
+    race_proportions = []
+    race_means = []
+
+    # loop for plotting
+    for race in df["race"].unique():
+        race_proportions += [find_proportions(df, "frisked", race)]
+        race_means += [find_mean(df, "age", race)]
+
+    figures, xlabels, bar_labels, xlabel, ylabel, title = race_proportions, df["race"].unique(), df["frisked"].unique(), "race", "proportion frisked", "frisked"
+
+    means, xlabels, xlabel, ylabel, title = race_means, df["race"].unique(), "race", "age", "age"
+
+
+def pie_chart(df, column):
     """
     Input:
 
     Output:
     """
+    plt.axis('equal') 
+    ### ========== TODO : Question 1 ========== ###
+        # part a: create a pie chart
     
-### ========== TODO : END ========== ###
+    pass
 
+    ### ========== TODO : END ========== ###
+    
 
-### ========== TODO : Question 3 ========== ###
+def binary(df, columns):
+    """
+    Input:
+
+    Output:
+    """
+    ### ========== TODO : Question 3 ========== ###
+    # change all the Y/N entries to binary, as well as the entries of 2 other columns
+    
+    pass
+
+    ### ========== TODO : END ========== ###
+
+    
 
 def find_proportions(df, column, race = None):
-    # TODO Implement find_proportions
     """
     Input:
 
@@ -55,19 +106,25 @@ def find_proportions(df, column, race = None):
 
     # Filter by race if provided
     if race:
+        ### ========== TODO : Question 3 ========== ###
         # part c: race filtering
 
         pass
 
+        ### ========== TODO : END ========== ###
+            
     df_col = df[column]
+
+    ### ========== TODO : Question 3 ========== ###
     # part a: proportions
 
     proportions = pd.Series()
 
+    ### ========== TODO : END ========== ###
+
     return proportions
 
 def find_mean(df, column, race = None):
-    # TODO Implement find_mean
     """
     Input:
 
@@ -77,20 +134,30 @@ def find_mean(df, column, race = None):
     df = df.dropna(subset=[column])
 
     if race:
+        ### ========== TODO : Question 3 ========== ###
         # part c: race filtering
 
         pass
+
+        ### ========== TODO : END ========== ###    
     
     df_col = df[column].astype(float)
+
+    ### ========== TODO : Question 3 ========== ###
     # part b: mean
 
     mean = 0.0
 
+    ### ========== TODO : END ========== ###
+
     return mean
 
-### ========== TODO : END ========== ###
-
 def plot_proportions(figures, xlabels, bar_labels, xlabel = None, ylabel = None, title = None):
+    """
+    Input:
+
+    Output:
+    """
     # data to plot 
     n_groups = len(figures)
 
@@ -122,6 +189,11 @@ def plot_proportions(figures, xlabels, bar_labels, xlabel = None, ylabel = None,
     plt.show()  
 
 def plot_means(means, xlabels, xlabel = None, ylabel = None, title = None):
+    """
+    Input:
+
+    Output:
+    """
     # data to plot 
     n_groups = len(means)
 
@@ -142,28 +214,7 @@ def plot_means(means, xlabels, xlabel = None, ylabel = None, title = None):
     plt.tight_layout()
     plt.show()  
 
-def main():
-    print(find_proportions(df, "race"))
-    print(find_mean(df, "weight"))
-    
-    """
-    race_proportions = []
-    race_means = []
-
-    # TODO edit the for loop
-    for race in df["race"].unique():
-        race_proportions += [find_proportions(df, "frisked", race)]
-        race_means += [find_mean(df, "age", race)]
-
-    plot_proportions(race_proportions, df["race"].unique(), df["frisked"].unique(), \
-        xlabel = "race", ylabel = "proportion frisked", title = "frisked")
-
-    plot_means(race_means, df["race"].unique(), \
-        xlabel = "race", ylabel = "age", title = "age")
-    """
+# --------------------------------- END --------------------------------- #
 
 if __name__ == "__main__":
     main()
-
-
-# --------------------------------- END --------------------------------- #

@@ -80,15 +80,12 @@ def main():
 
     # plot barplot
     barplot(df, 'Pclass', 'Sex')
-    plt.show()
 
     # plot histogram
     histogram(df, 'Age')
-    plt.show()
 
     # plot pair pointplot
     pointplot(df, 'Sex')
-    plt.show()
 
 
 def read(file):
@@ -154,7 +151,11 @@ def fill_age(df):
         title = re.findall("\w+[.]", name)[0]
         return title
     df['Title'] = df['Name'].map(get_title)
-    title_dictionary = {'Ms.': 'Miss.', 'Mlle.': 'Miss.', 'Dr.': 'Rare', 'Mme.': 'Mr.', 'Major.': 'Rare', 'Lady.': 'Rare', 'Sir.': 'Rare', 'Col.': 'Rare', 'Capt.': 'Rare', 'Countess.': 'Rare', 'Jonkheer.': 'Rare', 'Dona.': 'Rare', 'Don.': 'Rare', 'Rev.': 'Rare'}
+    title_dictionary = {'Ms.': 'Miss.', 'Mlle.': 'Miss.', 
+        'Dr.': 'Rare', 'Mme.': 'Mr.', 'Major.': 'Rare', 
+        'Lady.': 'Rare', 'Sir.': 'Rare', 'Col.': 'Rare', 
+        'Capt.': 'Rare', 'Countess.': 'Rare', 'Jonkheer.': 
+        'Rare', 'Dona.': 'Rare', 'Don.': 'Rare', 'Rev.': 'Rare'}
     df['Title'] = df['Title'].replace(title_dictionary)
     df['MedianAge'] = df.groupby('Title')['Age'].transform("median")
     df['Age'] = df['Age'].fillna(df['MedianAge'])
@@ -201,9 +202,11 @@ def barplot(df, column, hue = None):
 def histogram(df, column):
     g1 = sns.distplot(survived(df, 1)['Age'], color = 'Green')
     g2 = sns.distplot(survived(df, 0)['Age'], color = 'Red')
+    plt.show()
 
 def pointplot(df, column):
     sns.pointplot(x= df[column], y= df['Survived'])
+    plt.show()
 
 def family_size(df):
     ### ========== TODO : Question 6 ========== ###
@@ -213,5 +216,7 @@ def family_size(df):
 
     ### ========== TODO : END ========== ###
 
-
 # --------------------------------- END --------------------------------- #
+
+if __name__ == "__main__":
+    main()
