@@ -30,24 +30,18 @@ import re
 ### ========== TODO : Question 1 ========== ###
 
 # Part a: Read the .csv file
-df = pd.read_csv('../Data/test.csv')
-print('Question 1')
-print(df.describe())
+PATH = '../Data/test.csv'
+df = 
 
 ### ========== TODO : END ========== ###
 
 
 ### ========== TODO : Question 2 ========== ###
+# Part a:
 print('Question 2')
 print( df.isnull().sum() )
 # Part b: Drop columns with too many missing entries
 
-def drop(column):
-    """
-    Input:
-
-    Output:
-    """
 
 # drop, fill  
 
@@ -66,7 +60,7 @@ def survived(binary):
     
 
 # Part b
-def count_values(feature):
+def survival_rates(feature):
     """
     Input:
 
