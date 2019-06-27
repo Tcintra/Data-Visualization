@@ -1,10 +1,10 @@
 """
-Author      : Huey Fields
+Authors     : Huey Fields, Thomas Cintra, and Yun Zhang
 Class       : HMC CS 181R
-Date        : 2019 June 11
+Date        : 2019 June 20
 Description : SQF Data Analysis
-
-Modifications made by Thomas Cintra
+Name        : 
+Homework 1
 """
 # seaborn module
 import seaborn as sns
@@ -154,11 +154,6 @@ def find_mean(df, column, race = None):
     return mean
 
 def plot_proportions(figures, xlabels, bar_labels, xlabel = None, ylabel = None, title = None):
-    """
-    Input:
-
-    Output:
-    """
     # data to plot 
     n_groups = len(figures)
 
@@ -190,11 +185,6 @@ def plot_proportions(figures, xlabels, bar_labels, xlabel = None, ylabel = None,
     plt.show()  
 
 def plot_means(means, xlabels, xlabel = None, ylabel = None, title = None):
-    """
-    Input:
-
-    Output:
-    """
     # data to plot 
     n_groups = len(means)
 

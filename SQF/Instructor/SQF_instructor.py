@@ -1,10 +1,10 @@
 """
-Author      : Huey Fields
+Author      : Huey Fields, Thomas Cintra, and Yun Zhang
 Class       : HMC CS 181R
-Date        : 2019 June 11
+Date        : 2019 June 20
 Description : SQF Data Analysis
-
-Modifications made by Thomas Cintra
+Name        :
+Homework 1
 """
 # seaborn module
 import seaborn as sns

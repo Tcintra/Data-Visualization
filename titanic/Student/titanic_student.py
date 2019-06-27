@@ -1,9 +1,10 @@
 """ 
-Author: Thomas Cintra and Yun Zhang
-Class: CS 181R
-Week 2 - Data Science Overview
+Authors     : Thomas Cintra and Yun Zhang
+Class       : CS 181R
+Date        : 2019 June 20
+Description : Titanic data analysis
+Name        :
 Homework 1
-Name:
 """
 
 # seaborn module
