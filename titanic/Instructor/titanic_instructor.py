@@ -87,7 +87,6 @@ def main():
     # plot pair pointplot
     pointplot(df, 'Sex')
 
-
 def read(file):
     ### ========== TODO : Question 1 ========== ###
     # Part a: Read the .csv file and assign it to df

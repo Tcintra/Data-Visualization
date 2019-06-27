@@ -126,6 +126,14 @@ def survived(df, b):
 
     return survived_df
 
+def overall_survival(df):
+    ### ========== TODO : Question 3 ========== ###
+    # Part b: Return the survival rates of the entire titanic.csv dataset
+
+    return 
+
+    ## ========== TODO : END ========== ###
+
 def survival_rates(df, feature):
     ### ========== TODO : Question 3 ========== ###
     # Part c: Return a Pandas series for the proportion of passengers that survived grouped by a given feature

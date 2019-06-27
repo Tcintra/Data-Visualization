@@ -60,15 +60,11 @@ def main():
         race_proportions += [find_proportions(df, "frisked", race)]
         race_means += [find_mean(df, "age", race)]
 
-    figures, xlabels, bar_labels, xlabel, ylabel, title = race_proportions, df["race"].unique(), df["frisked"].unique(), "race", "proportion frisked", "frisked"
+    # uncomment this block to use plot_proportions
+    plot_proportions(race_proportions, df["race"].unique(), df["frisked"].unique(), xlabel = "race", ylabel = "proportion frisked", title = "frisked")
 
-    # call plot_proportions using the above input
-    plot_proportions(figures, xlabels, bar_labels, xlabel, ylabel, title)
-
-    means, xlabels, xlabel, ylabel, title = race_means, df["race"].unique(), "race", "age", "age"
-
-    # call plot_means using the above input
-    plot_means(means, xlabels, xlabel, ylabel, title)
+    # uncomment this block to use plot_means
+    plot_means(race_means, df["race"].unique(), xlabel = "race", ylabel = "age", title = "age")
 
 
 def pie_chart(df, column):
