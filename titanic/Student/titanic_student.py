@@ -98,6 +98,11 @@ def main():
     ### ========== TODO : END ========== ###
 
 def read(file):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 1 ========== ###
     # Part a: Read the .csv file and assign it to df
 
@@ -108,6 +113,11 @@ def read(file):
     return df
 
 def missing_values(df):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 2 ========== ###
     # Part a: Return all the missing values in df
 
@@ -117,6 +127,11 @@ def missing_values(df):
     ### ========== TODO : END ========== ###
 
 def survived(df, b):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part a: Return a Pandas DataFrame with all the passengers that survived
 
@@ -127,6 +142,11 @@ def survived(df, b):
     return survived_df
 
 def overall_survival(df):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part b: Return the survival rates of the entire titanic.csv dataset
 
@@ -135,6 +155,11 @@ def overall_survival(df):
     ## ========== TODO : END ========== ###
 
 def survival_rates(df, feature):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part c: Return a Pandas series for the proportion of passengers that survived grouped by a given feature
 
@@ -143,6 +168,11 @@ def survival_rates(df, feature):
     ## ========== TODO : END ========== ###
 
 def median(df, feature):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part d: Return the median value for feature for surviving passengers
 
@@ -153,6 +183,11 @@ def median(df, feature):
     return median
 
 def mean(df, feature):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part d: Return the mean value for feature for surviving passengers
 
@@ -164,6 +199,11 @@ def mean(df, feature):
 
 # Run this function to fill in missing entries in age
 def fill_age(df):
+    """
+    Input:
+
+    Output:
+    """
     def get_title(name):
         title = re.findall("\w+[.]", name)[0]
         return title
@@ -180,6 +220,11 @@ def fill_age(df):
     df.dropna(inplace = True)
 
 def age_categories(df):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 4 ========== ###
     # part a: Create a new column in df labelled 'Age Categories'
 
@@ -188,6 +233,11 @@ def age_categories(df):
     ## ========== TODO : END ========== ###
 
 def fare_categories(df):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 4 ========== ###
     # part b: Create a new column in df labelle 'Fare Categories'
 
@@ -206,6 +256,11 @@ def fare_categories(df):
     ## ========== TODO : END ========== ###
 
 def barplot(df, column, hue = None):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 5 ========== ###
     # part a
     if column == 'Age Categories':
@@ -226,6 +281,11 @@ def pointplot(df, column):
     sns.pointplot(x= df[column], y= df['Survived'])
 
 def family_size(df):
+    """
+    Input:
+
+    Output:
+    """
     ### ========== TODO : Question 6 ========== ###
     # part a
 

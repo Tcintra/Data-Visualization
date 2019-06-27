@@ -88,6 +88,11 @@ def main():
     pointplot(df, 'Sex')
 
 def read(file):
+    """
+    Input: takes in a csv file
+
+    Output: reads the csv file onto df
+    """
     ### ========== TODO : Question 1 ========== ###
     # Part a: Read the .csv file and assign it to df
 
@@ -98,10 +103,20 @@ def read(file):
     return df
 
 def missing_values(df):
+    """
+    Input: takes in a DataFrame
+
+    Output: outputs a Pandas series of the missing values in each column
+    """
     missing = df.isnull().sum()
     return missing
 
 def survived(df, b):
+    """
+    Input: takes in a DataFrame and a binary digit
+
+    Output: outputs a new DataFrame with only the surviving passengers
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part a
 
@@ -111,9 +126,19 @@ def survived(df, b):
     ## ========== TODO : END ========== ###
 
 def overall_survival(df):
+    """
+    Input: takes in a DataFrame
+
+    Output: outputs the survival rates for all passengers aboard the titanic
+    """
     return len(survived(df, 1))/len(df)
 
 def survival_rates(df, feature):
+    """
+    Input: takes in a DataFrame and one of its features
+
+    Output: outputs the survival rates for passengers belonging to each unique value in the given feature
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part c
 
@@ -125,6 +150,11 @@ def survival_rates(df, feature):
 
 
 def median(df, feature):
+    """
+    Input:takes in a DataFrame and one of its numeric features
+
+    Output: outputs the median value for this feature for surviving passengers
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part d
 
@@ -135,6 +165,11 @@ def median(df, feature):
     ## ========== TODO : END ========== ###
 
 def mean(df, feature):
+    """
+    Input: takes in a DataFrame and one of its numeric features
+
+    Output: outputs the mean value for this feature for surviving passengers
+    """
     ### ========== TODO : Question 3 ========== ###
     # Part d
 
@@ -146,6 +181,11 @@ def mean(df, feature):
 
 # Run this function to fill in missing entries in age
 def fill_age(df):
+    """
+    Input: takes in a DataFrame
+
+    Output: fills in all missing entries in 'Age' using the median age for each passenger's title
+    """
     def get_title(name):
         title = re.findall("\w+[.]", name)[0]
         return title
@@ -162,6 +202,11 @@ def fill_age(df):
     df.dropna(inplace = True)
 
 def age_categories(df):
+    """
+    Input: takes in a DataFrame
+
+    Output: generates a new column in the DataFrame called 'Age Categories'
+    """
     ### ========== TODO : Question 4 ========== ###
     # part a
 
@@ -170,6 +215,11 @@ def age_categories(df):
     ## ========== TODO : END ========== ###
 
 def fare_categories(df):
+    """
+    Input: takes in a DataFrame
+
+    Output: generates a new column in the DataFrame called 'Fare Categories'
+    """
     ### ========== TODO : Question 4 ========== ###
     # part b
 
@@ -186,6 +236,11 @@ def fare_categories(df):
     ## ========== TODO : END ========== ###
 
 def barplot(df, column, hue = None):
+    """
+    Input: takes in a DataFrame, one of its columns and optionally, another column
+
+    Output: outputs a barplot with survival rate on the y axis and the column on the x axis, optional hue argument
+    """
     ### ========== TODO : Question 5 ========== ###
     # part a
     if column == 'Age Categories':
@@ -208,6 +263,11 @@ def pointplot(df, column):
     plt.show()
 
 def family_size(df):
+    """
+    Input: takes in a DataFrame
+
+    Output: generates a new column called 'Family Size'
+    """
     ### ========== TODO : Question 6 ========== ###
     # part a
 
