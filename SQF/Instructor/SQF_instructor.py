@@ -69,9 +69,9 @@ def main():
 
 def pie_chart(df, column):
     """
-    Input:
+    Input: takes in a DataFrame and one of its columns
 
-    Output:
+    Output: outputs a pie chart of the distribution of the given column
     """
     plt.axis('equal') 
     plt.pie(df[column].value_counts(), labels = df[column].unique())
@@ -79,18 +79,18 @@ def pie_chart(df, column):
 
 def binary(df, columns):
     """
-    Input:
+    Input: takes in a DataFrame and one of its columns
 
-    Output:
+    Output: changes all the Y/N as well as some other entries to binary
     """
     for i in columns:
         df[i] = df[i].map({'Y' : 1, 'N' : 0, 'I' : 1, 'O' : 0, 'M' : 1, 'F' : 0})
 
 def find_proportions(df, column, race = None):
     """
-    Input:
+    Input: takes in a DataFrame, one of its columns and an optional race argument
 
-    Output:
+    Output: returns a pandas series of the proportions of each value in a given column
     """
     if race:
         df_race = df["race"]
@@ -102,9 +102,9 @@ def find_proportions(df, column, race = None):
 
 def find_mean(df, column, race = None):
     """
-    Input:
+    Input: takes in a Returns the mean value of the entries in the given column, one of its columns and optional race argument
 
-    Output:
+    Output: returns the mean value of the entries in the given column 
     """
     if race:
         df_race = df["race"]
@@ -114,11 +114,6 @@ def find_mean(df, column, race = None):
     return mean
 
 def plot_proportions(figures, xlabels, bar_labels, xlabel = None, ylabel = None, title = None):
-    """
-    Input:
-
-    Output:
-    """
     # data to plot 
     n_groups = len(figures)
 
@@ -150,11 +145,6 @@ def plot_proportions(figures, xlabels, bar_labels, xlabel = None, ylabel = None,
     plt.show()  
 
 def plot_means(means, xlabels, xlabel = None, ylabel = None, title = None):
-    """
-    Input:
-
-    Output:
-    """
     # data to plot 
     n_groups = len(means)
 
