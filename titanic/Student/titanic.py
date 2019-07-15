@@ -100,10 +100,17 @@ def main():
 
 def read(file):
     """
-    Input:
-
-    Output:
+    Reads the given csv file to a DataFrame
+    
+    Parameters
+    --------------------
+        fname   -- name of the csv file, string      
+    
+    Returns
+    --------------------
+        df      -- csv contents, DataFrame
     """
+
     ### ========== TODO : Question 1 ========== ###
     # Part a: Read the .csv file and assign it to df
 
@@ -115,10 +122,18 @@ def read(file):
 
 def missing_values(df):
     """
-    Input:
-
-    Output:
+    Finds the number of missing entries in each column of a DataFrame
+    
+    Parameters
+    --------------------
+        df      -- DataFrame to find missing entries in, DataFrame 
+    
+    Returns
+    --------------------
+        missing -- number of missing values in each column, indexed 
+                   by each column name, Series
     """
+
     ### ========== TODO : Question 2 ========== ###
     # Part a: Return all the missing values in df
 
@@ -129,10 +144,19 @@ def missing_values(df):
 
 def survived(df, b):
     """
-    Input:
+    Given a DataFrame, returns a new DataFrame filtered to only
+    have entries with the given survival status
+    
+    Parameters
+    --------------------
+        df          -- DataFrame to filter, DataFrame
+        survived    -- whether to filter for survival or lack of survival, boolean
 
-    Output:
+    Returns
+    --------------------
+        survived_df -- filtered DataFrame, DataFrame
     """
+
     ### ========== TODO : Question 3 ========== ###
     # Part a: Return a Pandas DataFrame with all the passengers that survived
 
@@ -144,10 +168,18 @@ def survived(df, b):
 
 def overall_survival(df):
     """
-    Input:
-
-    Output:
+    Finds the survival rate of all entries in the given DataFrame
+    
+    Parameters
+    --------------------
+        df            -- DataFrame to find survival rate for, DataFrame      
+    
+    Returns
+    --------------------
+        survival_rate -- proportion of entries in df with 'Survived' column 
+                         set to 1, float
     """
+
     ### ========== TODO : Question 3 ========== ###
     # Part b: Return the survival rates of the entire titanic.csv dataset
 
@@ -157,10 +189,20 @@ def overall_survival(df):
 
 def survival_rates(df, feature):
     """
-    Input:
-
-    Output:
+    Finds the survival rates of entries in the given DataFrame
+    for each unique value of the given column
+    
+    Parameters
+    --------------------
+        df        -- DataFrame to find survival rate for, DataFrame
+        feature   -- name of the column in df to find survival rates for, string
+    
+    Returns
+    --------------------
+        rates     -- survival rate for each unique value of a column of df,
+                     indexed by those values, Series
     """
+
     ### ========== TODO : Question 3 ========== ###
     # Part c: Return a Pandas series for the proportion of passengers that survived grouped by a given feature
 
@@ -170,10 +212,19 @@ def survival_rates(df, feature):
 
 def median(df, feature):
     """
-    Input:
-
-    Output:
+    Finds the median value of the given column for passengers
+    that survived in the given DataFrame
+    
+    Parameters
+    --------------------
+        df        -- DataFrame to find median in, DataFrame
+        feature   -- name of a numeric column in df, string
+    
+    Returns
+    --------------------
+        median    -- median value of the given column in df, float/int
     """
+
     ### ========== TODO : Question 3 ========== ###
     # Part d: Return the median value for feature for surviving passengers
 
@@ -185,10 +236,19 @@ def median(df, feature):
 
 def mean(df, feature):
     """
-    Input:
-
-    Output:
+    Finds the mean value of the given column for passengers
+    that survived in the given DataFrame
+    
+    Parameters
+    --------------------
+        df        -- DataFrame to find mean in, DataFrame
+        feature   -- name of a numeric column in df, string
+    
+    Returns
+    --------------------
+        median    -- mean value of the given column in df, float
     """
+
     ### ========== TODO : Question 3 ========== ###
     # Part d: Return the mean value for feature for surviving passengers
 
@@ -201,10 +261,15 @@ def mean(df, feature):
 # Run this function to fill in missing entries in age
 def fill_age(df):
     """
-    Input:
-
-    Output:
+    Fills in each missing value in the 'Age' column of the given DataFrame 
+    with the median value for 'Age' of entries with the same title in the 
+    'Name' column 
+    
+    Parameters
+    --------------------
+        df        -- DataFrame to modify, DataFrame
     """
+
     def get_title(name):
         title = re.findall("\w+[.]", name)[0]
         return title
@@ -222,10 +287,14 @@ def fill_age(df):
 
 def age_categories(df):
     """
-    Input:
-
-    Output:
+    Generates a new 'Age Categories' column in the given DataFrame that lists
+    which of 8 evenly spaced intervals the 'Age' of each entry falls into.
+    
+    Parameters
+    --------------------
+        df        -- DataFrame to modify, DataFrame
     """
+
     ### ========== TODO : Question 4 ========== ###
     # part a: Create a new column in df labelled 'Age Categories'
 
@@ -235,10 +304,15 @@ def age_categories(df):
 
 def fare_categories(df):
     """
-    Input:
-
-    Output:
+    Generates a new 'Fare Categories' column in the given DataFrame that lists
+    whether each entry's 'Fare' is 30 or less, between 30 and 100, or more than
+    100.
+    
+    Parameters
+    --------------------
+        df        -- DataFrame to modify, DataFrame
     """
+
     ### ========== TODO : Question 4 ========== ###
     # part b: Create a new column in df labelle 'Fare Categories'
 
@@ -258,10 +332,18 @@ def fare_categories(df):
 
 def barplot(df, column, hue = None):
     """
-    Input:
-
-    Output:
+    Creates and displays a barplot of survival rates for each of the unique values 
+    of a given column. An optional second column can be provided to show survival 
+    rates for each combination of unique values in the two columns.
+    
+    Parameters
+    --------------------
+        df      -- data to graph, DataFrame
+        column  -- name of (categorical) column to filter by on x-axis, string
+        hue     -- optional name of second (categorical) column to filter by,
+                   represented by bar colors, string
     """
+
     ### ========== TODO : Question 5 ========== ###
     # part a
     if column == 'Age Categories':
@@ -283,10 +365,15 @@ def pointplot(df, column):
 
 def family_size(df):
     """
-    Input:
-
-    Output:
+    Generates a new 'Family Size' column in the given DataFrame, representing
+    the total number of family members that each passenger boarded with
+    (including themselves).
+    
+    Parameters
+    --------------------
+        df        -- DataFrame to modify, DataFrame
     """
+    
     ### ========== TODO : Question 6 ========== ###
     # part a
 
