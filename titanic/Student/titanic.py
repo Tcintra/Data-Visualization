@@ -77,7 +77,7 @@ def main():
 
     # print overall survival rate
 
-    # print survival_rates
+    # print survival_rates_by_feature
 
     # print median
 
@@ -142,7 +142,7 @@ def survived(df, b):
 
     return survived_df
 
-def overall_survival(df):
+def overall_survival_rate(df):
     """
     Input:
 
@@ -155,7 +155,7 @@ def overall_survival(df):
 
     ## ========== TODO : END ========== ###
 
-def survival_rates(df, feature):
+def survival_rates_by_feature(df, feature):
     """
     Input:
 
@@ -242,18 +242,8 @@ def fare_categories(df):
     ### ========== TODO : Question 4 ========== ###
     # part b: Create a new column in df labelle 'Fare Categories'
 
-    def helper(row):
-        if row['Fare'] <= None:
-            val = ''
-        elif row['Fare'] <= None:
-            val = ''
-        else: 
-            val = ''
-        return val
-        
     df['Fare Categories'] = None
     
-
     ## ========== TODO : END ========== ###
 
 def barplot(df, column, hue = None):
