@@ -142,7 +142,7 @@ def missing_values(df):
 
     ### ========== TODO : END ========== ###
 
-def survived(df, b):
+def survived(df, survived):
     """
     Given a DataFrame, returns a new DataFrame filtered to only
     have entries with the given survival status
