@@ -58,13 +58,13 @@ def main():
     family_size(df)
 
     # print overall survival rate
-    print('Overall Survival Rate:', overall_survival(df))
+    print('Overall Survival Rate:', overall_survival_rate(df))
     print()
 
     # print survival_rates
     print('Survival rates:')
     print()
-    print(survival_rates(df, 'Sex'))
+    print(survival_rates_by_feature(df, 'Sex'))
     print()
 
     # print median
@@ -150,7 +150,7 @@ def survived(df, survived):
 
     ## ========== TODO : END ========== ###
 
-def overall_survival(df):
+def overall_survival_rate(df):
     """
     Finds the survival rate of all entries in the given DataFrame
     
@@ -168,7 +168,7 @@ def overall_survival(df):
     
     return survival_rate
 
-def survival_rates(df, feature):
+def survival_rates_by_feature(df, feature):
     """
     Finds the survival rates of entries in the given DataFrame
     for each unique value of the given column
@@ -303,17 +303,11 @@ def fare_categories(df):
     ### ========== TODO : Question 4 ========== ###
     # part b
 
-    def helper(row):
-        if row['Fare'] <= 30:
-            val = '30 or Less'
-        elif row['Fare'] > 30 and row['Fare'] <= 100:
-            val = 'Between 30 and 100'
-        else: 
-            val = 'More than 100'
-        return val
-    df['Fare Categories'] = df.apply(helper, axis = 1)
+    df["Fare Categories"] = pd.cut(x = df["Fare"], bins = (0, 30, 100, 513), labels = [0,1,2])
 
     ## ========== TODO : END ========== ###
+
+
 
 def barplot(df, column, hue = None):
     """
