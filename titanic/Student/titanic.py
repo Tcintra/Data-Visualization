@@ -26,77 +26,11 @@ from matplotlib import colors as mcolors
 # re module
 import re
 
-# --------------------------------- START --------------------------------- #
-
 path = os.path.join("..", "Data")
 
-def main():
-
-    print()
-
-    ### ========== TODO : Question 1 ========== ###
-
-    # read the dataframe
-    df = None
-
-    ### ========== TODO : END ========== ###
-    
-    ### ========== TODO : Question 2 ========== ###
-
-    # print missing values series
-
-    # drop column
-    
-
-    ### ========== TODO : END ========== ###
-
-
-    ### ========== TODO : Question 4 ========== ###
-
-    # call age_categories(df)
-    
-
-    # call fare_categories(df)
-
-
-    ### ========== TODO : END ========== ###
-
-    ### ========== TODO : INTERMEDIARY ========== ##
-
-    # call fill_age(df)
-
-    ### ========== TODO : END ========== ###
-
-    ### ========== TODO : Question 6 ========== ###
-
-    # call family_size(df)
-
-    ### ========== TODO : END ========== ###
-
-    ### ========== TODO : Question 3 ========== ###
-
-    # print overall survival rate
-
-    # print survival_rates_by_feature
-
-    # print median
-
-    # print mean
-
-    ### ========== TODO : END ========== ###
-
-
-    ### ========== TODO : Question 5 ========== ###
-
-    # plot barplot
-
-
-    # plot histogram
-
-
-    # plot pair pointplot
-
-    ### ========== TODO : END ========== ###
+######################################################################
+# functions
+######################################################################
 
 def read(file):
     """
@@ -371,5 +305,77 @@ def family_size(df):
 
     ### ========== TODO : END ========== ###
 
+######################################################################
+# main
+######################################################################
 
-# --------------------------------- END --------------------------------- #
+def main():
+
+    print()
+
+    ### ========== TODO : Question 1 ========== ###
+
+    # read the dataframe
+    df = None
+
+    ### ========== TODO : END ========== ###
+    
+    ### ========== TODO : Question 2 ========== ###
+
+    # print missing values series
+
+    # drop column
+    
+
+    ### ========== TODO : END ========== ###
+
+
+    ### ========== TODO : Question 4 ========== ###
+
+    # call age_categories(df)
+    
+
+    # call fare_categories(df)
+
+
+    ### ========== TODO : END ========== ###
+
+    ### ========== TODO : INTERMEDIARY ========== ##
+
+    # call fill_age(df)
+
+    ### ========== TODO : END ========== ###
+
+    ### ========== TODO : Question 6 ========== ###
+
+    # call family_size(df)
+
+    ### ========== TODO : END ========== ###
+
+    ### ========== TODO : Question 3 ========== ###
+
+    # print overall survival rate
+
+    # print survival_rates_by_feature
+
+    # print median
+
+    # print mean
+
+    ### ========== TODO : END ========== ###
+
+
+    ### ========== TODO : Question 5 ========== ###
+
+    # plot barplot
+
+
+    # plot histogram
+
+
+    # plot pair pointplot
+
+    ### ========== TODO : END ========== ###
+
+if __name__ == "__main__":
+    main()

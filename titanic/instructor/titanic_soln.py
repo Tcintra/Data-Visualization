@@ -26,67 +26,11 @@ from matplotlib import colors as mcolors
 # re module
 import re
 
-# --------------------------------- START --------------------------------- #
-
 PATH = os.path.join("..", "Data")
 
-def main():
-
-    print()
-
-    # read the dataframe
-    df = read('titanic.csv')
-
-    # print missing entries
-    print('Missing Values:')
-    print()
-    print(missing_values(df))
-    print()
-
-    df.drop('Cabin', axis = 1, inplace = True)
-
-    # call age_categories(df)
-    age_categories(df)
-
-    # call fare_categories(df)
-    fare_categories(df)
-
-    # call fill_age(df)
-    fill_age(df)
-
-    # call family_size(df)
-    family_size(df)
-
-    # print overall survival rate
-    print('Overall Survival Rate:', overall_survival_rate(df))
-    print()
-
-    # print survival_rates
-    print('Survival rates:')
-    print()
-    print(survival_rates_by_feature(df, 'Sex'))
-    print()
-
-    # print median
-    print('Medians:')
-    print()
-    print(median(df, 'Age'))
-    print()
-
-    # print mean
-    print('Means:')
-    print()
-    print(mean(df, 'Age'))
-    print()
-
-    # plot barplot
-    barplot(df, 'Pclass', 'Sex')
-
-    # plot histogram
-    histogram(df, 'Age')
-
-    # plot pair pointplot
-    pointplot(df, 'Sex')
+######################################################################
+# functions
+######################################################################
 
 def read(fname):
     """
@@ -303,7 +247,7 @@ def fare_categories(df):
     ### ========== TODO : Question 4 ========== ###
     # part b
 
-    df["Fare Categories"] = pd.cut(x = df["Fare"], bins = (0, 30, 100, 513), labels = [0,1,2])
+    df["Fare Categories"] = pd.cut(x = df["Fare"], bins = (0, 30, 100, 513), labels = ['30 or Less', 'Between 30 and 100', 'More than 100'])
 
     ## ========== TODO : END ========== ###
 
@@ -362,7 +306,67 @@ def family_size(df):
 
     ### ========== TODO : END ========== ###
 
-# --------------------------------- END --------------------------------- #
+######################################################################
+# main
+######################################################################
+
+def main():
+
+    print()
+
+    # read the dataframe
+    df = read('titanic.csv')
+
+    # print missing entries
+    print('Missing Values:')
+    print()
+    print(missing_values(df))
+    print()
+
+    df.drop('Cabin', axis = 1, inplace = True)
+
+    # call age_categories(df)
+    age_categories(df)
+
+    # call fare_categories(df)
+    fare_categories(df)
+
+    # call fill_age(df)
+    fill_age(df)
+
+    # call family_size(df)
+    family_size(df)
+
+    # print overall survival rate
+    print('Overall Survival Rate:', overall_survival_rate(df))
+    print()
+
+    # print survival_rates
+    print('Survival rates:')
+    print()
+    print(survival_rates_by_feature(df, 'Sex'))
+    print()
+
+    # print median
+    print('Medians:')
+    print()
+    print(median(df, 'Age'))
+    print()
+
+    # print mean
+    print('Means:')
+    print()
+    print(mean(df, 'Age'))
+    print()
+
+    # plot barplot
+    barplot(df, 'Pclass', 'Sex')
+
+    # plot histogram
+    histogram(df, 'Age')
+
+    # plot pair pointplot
+    pointplot(df, 'Sex')
 
 if __name__ == "__main__":
     main()
